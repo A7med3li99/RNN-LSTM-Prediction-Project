@@ -1,11 +1,11 @@
 # 🚀 Deep Learning Applications: CV, NLP & Time Series
 
-This repository demonstrates practical implementations of deep learning models across three main domains:
-- Computer Vision (CV)
-- Natural Language Processing (NLP)
-- Time Series Forecasting
+This repository demonstrates practical, portfolio-ready implementations of deep learning models across three main domains:
+- **Computer Vision (CV)** — image classification with CNNs and transfer learning
+- **Time Series Forecasting** — sequence prediction with RNN, LSTM, and GRU
+- **Neural Network Fundamentals** — regularization, callbacks, and residual architectures
 
-The project focuses on building, training, and comparing different neural network architectures using TensorFlow/Keras.
+All notebooks follow a consistent professional structure: EDA → preprocessing → model building → evaluation with metrics → visualizations → Key Takeaways.
 
 ---
 
@@ -13,9 +13,10 @@ The project focuses on building, training, and comparing different neural networ
 
 The main objective of this project is to understand and apply deep learning techniques in real-world scenarios by:
 
-- Implementing Convolutional Neural Networks (CNN) for image classification
-- Applying Recurrent Neural Networks (RNN, LSTM, GRU) for sequence prediction
-- Exploring modern architectures in Computer Vision and NLP
+- Implementing and comparing recurrent architectures (RNN, LSTM, GRU) for time series prediction using MAE and RMSE
+- Building CNNs from scratch and applying transfer learning with VGG16 for CIFAR-10 image classification
+- Implementing a mini ResNet with custom residual blocks to address the vanishing gradient problem
+- Building a regularized feedforward network (BatchNormalization + Dropout) with smart training callbacks
 
 ---
 
@@ -26,6 +27,7 @@ The main objective of this project is to understand and apply deep learning tech
 - NumPy
 - Pandas
 - Matplotlib
+- Seaborn
 - Scikit-learn
 - Jupyter Notebook
 
@@ -33,20 +35,25 @@ The main objective of this project is to understand and apply deep learning tech
 
 ## 📂 Project Structure
 
-| File | Description |
-|------|------------|
-| `Time_Series_Prediction_Comparison.ipynb` | Time series forecasting using RNN, LSTM, and GRU |
-| `ResNet_Implementation.ipynb` | Implementation of ResNet architecture |
-| `Fashion_MNIST_Basic_NN.ipynb` | Basic neural network on Fashion MNIST dataset |
-| `CV_NLP_Models_Overview.ipynb` | Overview of modern CV & NLP models |
+| Notebook | Description |
+|----------|-------------|
+| `Time_Series_Prediction_Comparison.ipynb` | EDA on Melbourne temperature dataset, then trains and evaluates RNN / LSTM / GRU with MAE & RMSE metrics and a final comparison table |
+| `CV_NLP_Models_Overview.ipynb` | CIFAR-10 image classification comparing CNN from Scratch, VGG16 Frozen, and VGG16 Fine-tuned; includes seaborn confusion matrix and model comparison table |
+| `Fashion_MNIST_Basic_NN.ipynb` | Improved feedforward network with BatchNormalization + Dropout, EarlyStopping + ReduceLROnPlateau callbacks, classification report, and confusion matrix heatmap |
+| `ResNet_Implementation.ipynb` | Mini ResNet built from scratch for CIFAR-10 using a custom `residual_block()` function; explains residual connections and the vanishing gradient problem |
 
 ---
 
-## 📊 Results
+## 📊 What to Expect When You Run the Notebooks
 
-- Achieved approximately **84.5% accuracy** on the Fashion MNIST classification task
-- Demonstrated improved performance of **LSTM/GRU** compared to standard RNN for sequence prediction
-- Built and evaluated multiple deep learning models with different architectures
+> **Note:** The notebooks contain ready-to-run code with no pre-executed outputs. Run all cells to see the results.
+
+| Notebook | What You Will See |
+|----------|------------------|
+| **Time Series** | Training curves for RNN, LSTM & GRU + MAE/RMSE comparison table + prediction plots |
+| **CV** | Per-epoch accuracy for CNN Scratch, VGG16 Frozen & VGG16 Fine-tuned + confusion matrix |
+| **Fashion MNIST** | Accuracy/loss curves, classification report, and confusion matrix heatmap |
+| **Mini ResNet** | model.summary(), training history plots, and test accuracy on CIFAR-10 |
 
 ---
 
@@ -55,20 +62,32 @@ The main objective of this project is to understand and apply deep learning tech
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/A7med3li99/RNN-LSTM-Prediction-Project.git
-cd RNN-LSTM-Prediction-Project
-2. Install Dependencies
-pip install -r requirements.txt
-3. Run Jupyter Notebook
+git clone https://github.com/Ahmed3li99/Applied-Deep-Learning-TensorFlow.git
+cd Applied-Deep-Learning-TensorFlow
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install tensorflow numpy pandas matplotlib seaborn scikit-learn jupyter
+```
+
+### 3. Run Jupyter Notebook
+
+```bash
 jupyter notebook
-Then open any .ipynb file and run all cells.
+```
 
-🧠 Key Learnings
-Understanding differences between CNN, RNN, LSTM, and GRU
+Then open any `.ipynb` file and run all cells.
 
-Working with time series data and sequence modeling
+---
 
-Data preprocessing and normalization techniques
+## 🧠 Key Learnings
 
-Training and evaluating deep learning models
+- **RNN vs LSTM vs GRU** — gating mechanisms in LSTM/GRU improve long-range dependency capture compared to SimpleRNN; compare them directly using MAE and RMSE
+- **Transfer Learning** — fine-tuning a pretrained VGG16 backbone significantly outperforms training a CNN from scratch on CIFAR-10
+- **Residual Connections** — skip connections in ResNet allow gradients to flow directly, solving the vanishing gradient problem for deep networks (`H(x) = F(x) + x`)
+- **Regularization** — combining BatchNormalization and Dropout layers reduces overfitting and improves generalization on Fashion MNIST
+- **Training Callbacks** — EarlyStopping and ReduceLROnPlateau prevent overfitting and enable efficient training without manual tuning
+- **Evaluation** — MAE, RMSE, classification reports, and confusion matrices together give a complete picture of model performance
 
