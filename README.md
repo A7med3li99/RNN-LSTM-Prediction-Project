@@ -44,16 +44,16 @@ The main objective of this project is to understand and apply deep learning tech
 
 ---
 
-## 📊 Results
+## 📊 What to Expect When You Run the Notebooks
 
-| Notebook | Key Result |
-|----------|-----------|
-| **Time Series** | LSTM & GRU outperform SimpleRNN; GRU achieves competitive MAE with fewer parameters |
-| **CV — CNN Scratch** | ~60% validation accuracy after 3 epochs on CIFAR-10 |
-| **CV — VGG16 Frozen** | ~50–65% validation accuracy (limited by domain gap) |
-| **CV — VGG16 Fine-tuned** | **~82%** validation accuracy after fine-tuning top 30% of layers |
-| **Fashion MNIST** | **88%+** test accuracy using BatchNorm + Dropout + callbacks |
-| **Mini ResNet** | ~75–80% test accuracy on CIFAR-10 with only 3 residual blocks |
+> **Note:** The notebooks contain ready-to-run code with no pre-executed outputs. Run all cells to see the results.
+
+| Notebook | What You Will See |
+|----------|------------------|
+| **Time Series** | Training curves for RNN, LSTM & GRU + MAE/RMSE comparison table + prediction plots |
+| **CV** | Per-epoch accuracy for CNN Scratch, VGG16 Frozen & VGG16 Fine-tuned + confusion matrix |
+| **Fashion MNIST** | Accuracy/loss curves, classification report, and confusion matrix heatmap |
+| **Mini ResNet** | model.summary(), training history plots, and test accuracy on CIFAR-10 |
 
 ---
 
@@ -84,10 +84,10 @@ Then open any `.ipynb` file and run all cells.
 
 ## 🧠 Key Learnings
 
-- **RNN vs LSTM vs GRU** — gating mechanisms in LSTM/GRU significantly improve long-range dependency capture compared to SimpleRNN
-- **Transfer Learning** — fine-tuning a pretrained VGG16 backbone yields ~82% accuracy vs ~60% training from scratch on CIFAR-10
+- **RNN vs LSTM vs GRU** — gating mechanisms in LSTM/GRU improve long-range dependency capture compared to SimpleRNN; compare them directly using MAE and RMSE
+- **Transfer Learning** — fine-tuning a pretrained VGG16 backbone significantly outperforms training a CNN from scratch on CIFAR-10
 - **Residual Connections** — skip connections in ResNet allow gradients to flow directly, solving the vanishing gradient problem for deep networks (`H(x) = F(x) + x`)
-- **Regularization** — BatchNormalization + Dropout together push Fashion MNIST accuracy above 88%
+- **Regularization** — combining BatchNormalization and Dropout layers reduces overfitting and improves generalization on Fashion MNIST
 - **Training Callbacks** — EarlyStopping and ReduceLROnPlateau prevent overfitting and enable efficient training without manual tuning
-- **Evaluation** — using MAE, RMSE, classification reports, and confusion matrices provides a complete picture of model performance
+- **Evaluation** — MAE, RMSE, classification reports, and confusion matrices together give a complete picture of model performance
 
